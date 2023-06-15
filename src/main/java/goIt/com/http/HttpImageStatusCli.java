@@ -8,7 +8,7 @@ public class HttpImageStatusCli {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Enter HTTP status code");
+            System.out.println("Please, enter HTTP status code");
             String userInput = scanner.nextLine();
             if ("exit".equalsIgnoreCase(userInput)) {
                 break;
@@ -18,7 +18,7 @@ public class HttpImageStatusCli {
                     String url = new HttpStatusChecker().getStatusImage(code);
                     if (url == null) {
                         System.out.println("There is not image for HTTP status " + userInput);
-                    }else {
+                    } else {
                         new HttpStatusImageDownloader().downloadStatusImage(code);
                     }
                 } catch (NumberFormatException e) {
@@ -28,6 +28,5 @@ public class HttpImageStatusCli {
                 }
             }
         }
-
     }
 }
